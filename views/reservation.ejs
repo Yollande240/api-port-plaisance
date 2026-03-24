@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Réservations</title>
+</head>
+
+<body>
+    <h1>Réservations du catway <%= catwayId %>
+    </h1>
+
+    <a href="/dashboard">← Retour au dashboard</a>
+    <br><br>
+
+    <a href="/catways/<%= catwayId %>/reservations/new">Ajouter une réservation</a>
+
+    <br><br>
+
+    <table border="1" cellpadding="10">
+        <thead>
+            <tr>
+                <th>Client</th>
+                <th>Bateau</th>
+                <th>Date début</th>
+                <th>Date fin</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <% reservations.forEach(reservation=> { %>
+                <tr>
+                    <td>
+                        <%= reservation.clientName %>
+                    </td>
+                    <td>
+                        <%= reservation.boatName %>
+                    </td>
+                    <td>
+                        <%= reservation.startDate ? new Date(reservation.startDate).toLocaleDateString("fr-FR") : "-" %>
+                    </td>
+                    <td>
+                        <%= reservation.endDate ? new Date(reservation.endDate).toLocaleDateString("fr-FR") : "-" %>
+                    </td>
+                    <td>
+                        <form action="/catways/<%= catwayId %>/reservations/<%= reservation._id %>/delete" method="POST"
+                            style="display:inline;">
+                            <button type="submit">Supprimer</button>
+                        </form>
+                    </td>
+                </tr>
+                <% }) %>
+        </tbody>
+    </table>
+</body>
+
+</html>

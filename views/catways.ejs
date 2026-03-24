@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Catways</title>
+    <style>
+        body {
+            font-family: Arial;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th,
+        td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f4f4f4;
+        }
+
+        a {
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Liste des Catways</h1>
+
+    <a href="/dashboard">⬅ Retour au dashboard</a>
+
+    <a href="/catways/new">+ Ajouter un catway</a>
+    <br><br>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Numéro</th>
+                <th>Type</th>
+                <th>État</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% catways.forEach(catway=> { %>
+                <tr>
+                    <td>
+                        <%= catway.catwayNumber %>
+                    </td>
+                    <td>
+                        <%= catway.catwayType %>
+                    </td>
+                    <td>
+                        <%= catway.catwayState %>
+                    </td>
+
+                    <td>
+                        <a href="/catways/<%= catway.catwayNumber %>">Voir</a> /
+                        <a href="/catways/<%= catway.catwayNumber %>/edit">Modifier</a> /
+
+                        <form action="/catways/<%= catway.catwayNumber %>?_method=DELETE" method="POST"
+                            style="display:inline;">
+                            <button type="submit">Supprimer</button>
+                        </form> /
+
+                        <a href="/catways/<%= catway.catwayNumber %>/reservations-view">
+                            Réservations
+                        </a>
+                    </td>
+                </tr>
+                <% }) %>
+        </tbody>
+    </table>
+
+</body>
+
+</html>

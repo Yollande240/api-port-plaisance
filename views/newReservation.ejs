@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Ajouter une réservation</title>
+</head>
+
+<body>
+
+    <h1>Ajouter une réservation pour le catway <%= catwayId %>
+    </h1>
+
+    <a href="/catways/<%= catwayId %>/reservations-view">← Retour aux réservations</a>
+
+    <br><br>
+
+    <form action="/catways/<%= catwayId %>/reservations/new" method="POST">
+
+        <div>
+            <label>Nom du client :</label><br>
+            <input type="text" name="clientName" required>
+        </div>
+
+        <br>
+
+        <div>
+            <label>Nom du bateau :</label><br>
+            <input type="text" name="boatName" required>
+        </div>
+
+        <br>
+
+        <div>
+            <label>Date de début :</label><br>
+            <input type="date" name="startDate" required>
+        </div>
+
+        <br>
+
+        <div>
+            <label>Date de fin :</label><br>
+            <input type="date" name="endDate">
+        </div>
+
+        <br>
+
+        <button type="submit">Enregistrer</button>
+
+    </form>
+
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Documentation API</title>
+</head>
+
+<body>
+
+    <h1>Documentation API - Port de plaisance Russell</h1>
+
+    <h2>Authentification</h2>
+    <ul>
+        <li>POST /login → connexion utilisateur</li>
+        <li>GET /logout → déconnexion</li>
+    </ul>
+
+    <h2>Utilisateurs</h2>
+    <ul>
+        <li>GET /users → liste des utilisateurs</li>
+        <li>GET /users/:email → détail d'un utilisateur</li>
+        <li>POST /users → créer un utilisateur</li>
+        <li>PUT /users/:email → modifier un utilisateur</li>
+        <li>DELETE /users/:email → supprimer un utilisateur</li>
+
+    </ul>
+
+    <h2>Catways</h2>
+    <ul>
+        <li>GET /catways → liste des catways</li>
+        <li>GET /catways/:id → détail d'un catway</li>
+        <li>POST /catways → créer un catway</li>
+        <li>PUT /catways/:id → modifier un catway</li>
+        <li>DELETE /catways/:id → supprimer un catway</li>
+    </ul>
+
+    <h2>Réservations</h2>
+    <ul>
+        <li>GET /catways/:id/reservations → liste des réservations</li>
+        <li>GET /catways/:id/reservations/:idReservation → détail d'une réservation</li>
+        <li>POST /catways/:id/reservations → créer une réservation</li>
+        <li>PUT /catways/:id/reservations/:idReservation → modifier une réservation</li>
+        <li>DELETE /catways/:id/reservations/:idReservation → supprimer une réservation</li>
+    </ul>
+
+    <a href="/">Retour à l'accueil</a>
+
+</body>
+
+</html>

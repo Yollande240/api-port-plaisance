@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Tableau de bord</title>
+</head>
+
+<body>
+    <h1>Tableau de bord</h1>
+    <p>Connexion réussie.</p>
+
+    <p>Bienvenue <%= user ? user.username : "utilisateur" %>
+    </p>
+    <p>Email : <%= user ? user.email : "" %>
+    </p>
+    <p>Date du jour : <%= new Date().toLocaleDateString("fr-FR") %>
+    </p>
+
+    <h2>Menu</h2>
+    <ul>
+        <li><a href="/">Accueil</a></li>
+        <li><a href="/users-view">Utilisateurs</a></li>
+        <li><a href="/catways-view">Catways</a></li>
+        <li><a href="/catways/1/reservations-view">Réservations du catway 1</a></li>
+        <li><a href="/documentation">Documentation API</a></li>
+        <li><a href="/logout">Se déconnecter</a></li>
+    </ul>
+
+    <h2>Réservations en cours</h2>
+    <table border="1" cellpadding="5">
+        <tr>
+            <th>Client</th>
+            <th>Bateau</th>
+            <th>Début</th>
+            <th>Fin</th>
+        </tr>
+
+        <% if (reservations && reservations.length> 0) { %>
+            <% reservations.forEach(reservation=> { %>
+                <tr>
+                    <td>
+                        <%= reservation.clientName %>
+                    </td>
+                    <td>
+                        <%= reservation.boatName %>
+                    </td>
+                    <td>
+                        <%= new Date(reservation.startDate).toLocaleDateString("fr-FR") %>
+                    </td>
+                    <td>
+                        <%= new Date(reservation.endDate).toLocaleDateString("fr-FR") %>
+                    </td>
+                </tr>
+                <% }) %>
+                    <% } else { %>
+                        <tr>
+                            <td colspan="4">Aucune réservation en cours</td>
+                        </tr>
+                        <% } %>
+    </table>
+</body>
+
+</html>
